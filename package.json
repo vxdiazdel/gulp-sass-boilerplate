@@ -1,0 +1,20 @@
+{
+  "name": "Gulp-Boilerplate",
+  "version": "0.0.1",
+  "description": "Gulp and SASS boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Diaz de Leon",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "dependencies": {}
+}
