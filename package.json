@@ -4,7 +4,8 @@
   "description": "Gulp and SASS boilerplate",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "dev": "gulp dev"
   },
   "author": "Victor Diaz de Leon",
   "license": "ISC",

@@ -21,7 +21,7 @@ gulp.task('scripts', function() {
 		.pipe(concat('bundle.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('./build/js'));
-});	
+});
 
 // Styles task
 // Compiles sass and autoprefixes CSS
@@ -42,25 +42,38 @@ gulp.task('images', function() {
 		.pipe(gulp.dest('./build/img'));
 });
 
+// HTML task
+// Copies html files
+gulp.task('html', function() {
+	gulp.src('*.html')
+		.pipe(plumber())
+		.pipe(gulp.dest('./public'));
+});
+
 // Browser Sync
 gulp.task('browser-sync', function() {
 	browserSync.init({
 		server: {
-			proxy: 'localhost:3000'
-		}	
+			proxy: 'localhost:9000'
+		}
 	});
 });
 
-// Watch task
-gulp.task('watch', ['browser-sync'], function() {
+// LiveReload task
+gulp.task('reload', ['browser-sync'], function() {
 	gulp.watch('./src/js/**/*.js', ['scripts']);
 	gulp.watch('./src/sass/**/*.scss', ['styles']);
 	gulp.watch('./src/img/*', ['images']);
 	gulp.watch(['*.html', './src/js/**/*.js', './src/sass/**/*.scss']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['scripts', 'styles', 'images', 'watch']);
+// Watch task
+gulp.task('watch', function() {
+	gulp.watch('./src/js/**/*.js', ['scripts']);
+	gulp.watch('./src/sass/**/*.scss', ['styles']);
+	gulp.watch('./src/img/*', ['images']);
+	gulp.watch('*.html', ['html']);
+});
 
-
-
-	
+gulp.task('default', ['scripts', 'styles', 'images', 'reload']);
+gulp.task('dev', ['scripts', 'styles', 'images', 'html', 'watch']);
