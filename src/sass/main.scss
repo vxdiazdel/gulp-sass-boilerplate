@@ -1,11 +1,6 @@
-// Main SASS file -- outputs to build/css/main.css
-
 @import 'variables';
 @import 'mixins';
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
+@import 'base';
+@import 'grid';
+@import 'layout';
+@import 'partials/all';
